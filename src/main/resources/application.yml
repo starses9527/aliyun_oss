@@ -1,0 +1,32 @@
+server:
+  port: 8092
+  servlet:
+    context-path: /blog
+#
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring:
+  datasource:
+    url: jdbc:mysql://119.23.255.148:3306/slave
+    username: slave
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # redis
+  redis:
+    host: 119.23.255.148
+    port: 6379
+    password:
+      pool:
+        max-active: 100
+        max-idle: 10
+        max-wait: 100000
+    timeout: 5000
+    database: 0
+  messages:
+    basename: i18n/message
+
+#mybatis:
